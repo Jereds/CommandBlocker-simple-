@@ -1,0 +1,9 @@
+name: CommandBlocker
+main: me.jereds.commandblocker.CommandBlocker
+version: 1.0
+authors: [Jereds]
+commands:
+  commandblockerreload:
+    usage: Sorry! You lack permission to run this command.
+    description: reloads this config and refreshes the blocked commands list.
+    aliases: [cmdbreload, cmdblockreload, blockedcmds, commandblocker, cmdblocker]

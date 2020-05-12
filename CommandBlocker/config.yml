@@ -1,0 +1,9 @@
+blocked commands:
+  - home
+  - ehome
+  - sethome
+  - esethome
+  - essentials:sethome
+  - essentials:esethome
+  - essentials:home
+  - essentials:ehome
