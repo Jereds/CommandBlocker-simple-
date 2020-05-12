@@ -1,6 +1,7 @@
 package me.jereds.commandblocker;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.Bukkit;
@@ -36,7 +37,7 @@ public class CommandBlocker extends JavaPlugin implements Listener, CommandExecu
 	
 	@EventHandler
 	public void onPlayerCommand(PlayerCommandPreprocessEvent event) {
-		if(isDisabled(event.getMessage())) {
+		if(isDisabled(event.getMessage().replaceFirst("/", ""))) {
 			event.setCancelled(true);
 			event.getPlayer().sendMessage(ChatColor.DARK_RED + "Sorry! This command is disabled.");
 		}
@@ -51,6 +52,7 @@ public class CommandBlocker extends JavaPlugin implements Listener, CommandExecu
 		if(sender.hasPermission("commandblocker.reload")) {
 			reloadConfig();
 			disabledCommands = getConfig().getStringList("blocked commands");
+			sender.sendMessage(ChatColor.GREEN + "Successfully reloaded the config! Blocked commands:\n" + ChatColor.RED + Arrays.toString(disabledCommands.toArray()));
 			return true;
 		}
 		return false;
